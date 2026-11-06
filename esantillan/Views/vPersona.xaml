@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="esantillan.Views.vPersona"
+             Title="vPersona">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+          Padding="20"
+          RowSpacing="10">
+
+        <Label Grid.Row="0"
+               Text="Semana 5: BASES DE DATOS LOCALES"
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="txtName"
+               Grid.Row="1"
+               Placeholder="Ingrese el nombre" />
+
+        <Button x:Name="btnAgregar"
+                Grid.Row="2"
+                Text="Agregar Persona"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                Clicked="btnAgregar_Clicked" />
+
+        <Label x:Name="lblStatusMessage"
+               Grid.Row="3"
+               TextColor="Red" />
+
+        <Button x:Name="btnMostrar"
+                Grid.Row="4"
+                Text="Mostrar Personas"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                Clicked="btnMostrar_Clicked" />
+
+        <CollectionView x:Name="listaPersonas"
+                        Grid.Row="5">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="50,*,110"
+                          Padding="0,4">
+
+                        <Label Grid.Column="0"
+                               Text="{Binding Id}"
+                               VerticalOptions="Center" />
+
+                        <Label Grid.Column="1"
+                               Text="{Binding Name}"
+                               VerticalOptions="Center" />
+
+                        <Button Grid.Column="2"
+                                Text="Eliminar"
+                                BackgroundColor="Red"
+                                TextColor="White"
+                                Clicked="btnEliminar_Clicked" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
