@@ -7,9 +7,16 @@
     Shell.FlyoutBehavior="Disabled"
     Title="esantillan">
 
-    <ShellContent
-        Title="Personas"
-        ContentTemplate="{DataTemplate views:vPersona}"
-        Route="vPersona" />
+    <TabBar>
+        <ShellContent
+            Title="Estudiantes"
+            ContentTemplate="{DataTemplate views:vEstudiante}"
+            Route="vEstudiante" />
+
+        <ShellContent
+            Title="Personas"
+            ContentTemplate="{DataTemplate views:vPersona}"
+            Route="vPersona" />
+    </TabBar>
 
 </Shell>

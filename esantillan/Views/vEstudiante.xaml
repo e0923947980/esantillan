@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:esantillan.Models"
+             x:Class="esantillan.Views.vEstudiante"
+             Title="Estudiantes">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="20"
+          RowSpacing="10">
+
+        <Button Grid.Row="0"
+                Text="Agregar Estudiante"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                Clicked="btnNuevo_Clicked" />
+
+        <!-- Encabezado de la tabla (amarillo) -->
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,2*,2*,*"
+              ColumnSpacing="0">
+            <Border Grid.Column="0" Stroke="Black" StrokeThickness="1" BackgroundColor="Yellow" Padding="6">
+                <Label Text="Codigo" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" BackgroundColor="Yellow" Padding="6">
+                <Label Text="Nombre" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" BackgroundColor="Yellow" Padding="6">
+                <Label Text="Apellido" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" BackgroundColor="Yellow" Padding="6">
+                <Label Text="Edad" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            </Border>
+        </Grid>
+
+        <!-- Filas: al tocar una se abre Actualizar / Eliminar -->
+        <CollectionView x:Name="listaEstudiantes"
+                        Grid.Row="2"
+                        SelectionMode="Single"
+                        SelectionChanged="listaEstudiantes_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Estudiante">
+                    <Grid ColumnDefinitions="*,2*,2*,*"
+                          ColumnSpacing="0">
+                        <Border Grid.Column="0" Stroke="Black" StrokeThickness="1" Padding="6">
+                            <Label Text="{Binding Codigo}" HorizontalTextAlignment="Center" />
+                        </Border>
+                        <Border Grid.Column="1" Stroke="Black" StrokeThickness="1" Padding="6">
+                            <Label Text="{Binding Nombre}" HorizontalTextAlignment="Center" />
+                        </Border>
+                        <Border Grid.Column="2" Stroke="Black" StrokeThickness="1" Padding="6">
+                            <Label Text="{Binding Apellido}" HorizontalTextAlignment="Center" />
+                        </Border>
+                        <Border Grid.Column="3" Stroke="Black" StrokeThickness="1" Padding="6">
+                            <Label Text="{Binding Edad}" HorizontalTextAlignment="Center" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
